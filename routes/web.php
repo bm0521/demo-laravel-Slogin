@@ -12,5 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('top');
+})->name('top');
+
+Route::get('login.{provider}', 'Auth\LoginController@redirectToProvider')->name('login.provider');
+
+Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
